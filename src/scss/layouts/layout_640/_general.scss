@@ -1,0 +1,358 @@
+.header {
+  grid-template-areas: "header_logo      header_slogan"
+                       "header_nav_top   header_nav_bottom"
+                       "header_search    header_search";
+
+
+  @include e(logo) {
+    padding-left: 20%;
+  }
+  @include e(slogan) {
+    padding-right: 20%;
+  }
+}
+
+$headerHeight: rem(60px);
+$headerNavHeight: rem(40px);
+
+.header {
+  @include e(logo) {
+    height: $headerHeight;
+  }
+  @include e(slogan) {
+    height: $headerHeight;
+    line-height: rem(43px);
+  }
+  @include e(nav) {
+    @include m(top) {
+      padding-left: 20%;
+    }
+    @include m(bottom) {
+      padding-right: 20%;
+    }
+  }
+  @include e(search) {
+    @include m(input) {
+      padding-left: 10%;
+    }
+    @include m(icon) {
+      padding-right: 10%;
+    }
+  }
+}
+
+.artwork {
+    $arrowHeight: rem(26px);
+    $arrowWidth: rem(42px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    @include e(picture) {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      background-color: $white;
+      height: rem(315px);
+      width: rem(607px);
+      flex: none;
+      border: 10px solid white;
+      @include m(text) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: $white;
+        border-radius: 50%;
+        width: rem(275px);
+        height: rem(275px);
+        transform: translate(-50%, -50%);
+        border: 20px solid $creme;
+        @include m(header) {
+          width: rem(150px);
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          color: $brown;
+          font-size: rem(18px);
+          padding-top: 0;
+        }
+        @include m(description) {
+          color: $gray;
+          font-size: rem(8px);
+          width: rem(200px);
+        }
+      }
+      @include m(img) {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        grid-gap: 7px;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        opacity: 0.3;
+        @include m(1) {
+          grid-area: 1 / 1 / 3 / 3;
+          transform: scale(1.25) translate(rem(29px),rem(32px));
+        }
+        @include m(2) {
+          grid-area: 1 / 3 / 2 / 4;
+          transform: scale(1.25) translate(rem(23px),rem(14px));
+        }
+        @include m(3) {
+          grid-area: 2 / 3 / 3 / 5;
+          transform: scale(1.3) translateX(rem(61px));
+        }
+        @include m(4) {
+          grid-area: 1 / 4 / 2 / 5;
+          transform: scale(1.1) translateX(rem(29px));
+        }
+      }
+    }
+    // @include e(left) {
+    //   display: none;
+    // }
+    // @include e(right) {
+    //   display: none;
+    // }
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+  @include e(main-header) {
+    text-align: center;
+    color: $contentHeader;
+    font-size: rem(18px);
+    line-height: rem(27px);
+    font-weight: 600;
+  }
+  @include e(secondary-header) {
+    width: 70%;
+    text-align: center;
+    color: $contentSecondaryHeader;
+    font-size: rem(10px);
+    line-height: rem(15px);
+    margin: 0 auto;
+    padding-bottom: 1rem;
+  }
+  @include e(bricks) {
+      $brickWidth: rem(230px);
+      $brickHeight: rem(480px);
+      $squareBrickWidth: rem(240px);
+      @include m(recent-works) {
+        padding: 0;
+        @include m(title) {
+          border: none;
+          margin: 0 auto;
+          width: $brickWidth;
+          height: $brickHeight;
+          @include m(header) {
+            color: $fontDark;
+            font-size: rem(16px);
+            line-height: rem(25px);
+            font-weight: 600;
+            text-transform: uppercase;
+          }
+          @include m(text) {
+            color: $fontLight;
+            font-size: rem(12px);
+            line-height: rem(21px);
+            width: 80%;
+          }
+        }
+        @include m(content) {
+          margin: 0 auto;
+          width: $brickWidth;
+          height: $brickHeight;
+          background-color: $white;
+          @include m(img) {
+            margin: 0;
+            border-bottom: 3px solid $redBorder;
+            width: 100%;
+          }
+          @include m(title) {
+            padding: rem(30px) rem(40px) rem(20px) rem(40px);
+            color: $brickHeader;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: rem(16px);
+          }
+          @include m(text) {
+            padding: 0 rem(40px) 0 rem(40px);
+            color: $fontLight;
+            font-size: rem(12px);
+            line-height: rem(21px);
+          }
+        }
+      }
+      @include m(blog) {
+        padding: 0;
+        @include m(title) {
+          border: none;
+          margin: 0 auto;
+          width: $brickWidth;
+          height: $brickHeight;
+          @include m(header) {
+            color: $fontDark;
+            font-size: rem(16px);
+            line-height: rem(25px);
+            font-weight: 600;
+            text-transform: uppercase;
+          }
+          @include m(text) {
+            color: $fontLight;
+            font-size: rem(12px);
+            line-height: rem(21px);
+            width: 80%;
+          }
+        }
+        @include m(content) {
+          margin: 0 auto;
+          width: $brickWidth;
+          height: $brickHeight;
+          background-color: $white;
+          @include m(img) {
+            margin: 0;
+            border-bottom: 3px solid $redBorder;
+            width: 100%;
+          }
+          @include m(title) {
+            padding: rem(30px) rem(40px) rem(20px) rem(40px);
+            color: $brickHeader;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: rem(16px);
+          }
+          @include m(subtitle) {
+            padding: 0 rem(40px) rem(20px);
+            font-weight: 700;
+            line-height: rem(21px);
+            font-size: rem(13px);
+            text-transform: uppercase;
+          }
+          @include m(text) {
+            padding: 0 rem(40px)  rem(40px);
+            color: $fontLight;
+            font-size: rem(12px);
+            line-height: rem(21px);
+          }
+        }
+      }
+      @include m(other) {
+        @include m(primary) {
+          width: $squareBrickWidth;
+          height: $squareBrickWidth;
+          position: static;
+          padding: 0;
+          background-color: $white;
+          margin-left: auto;
+          @include m(title) {
+            position: static;
+            padding: rem(40px) rem(40px) rem(20px) rem(40px);
+            color: $brickHeader;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: rem(16px);
+          }
+          @include m(text) {
+            position: static;
+            padding-right: rem(40px);
+            padding-left: rem(40px);
+            padding: 0 rem(40px) rem(50px) rem(40px);
+            font-size: rem(12px);
+            line-height: rem(21px);
+            color: $fontLight;
+            overflow: hidden;
+          }
+        }
+        @include m(pic) {
+          position: relative;
+          padding: 0;
+          margin: 0;
+          background-color: $red;
+          width: $squareBrickWidth;
+          height: $squareBrickWidth;
+          @include m(link) {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(24px, -24px);
+            @include m(svg) {
+              fill: $white;
+              width: 48px;
+              height: 48px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+.content__bricks {
+  @include m(recent-works) {
+    display: grid;
+    grid-template-areas: "title  brick1"
+                         "brick2 brick3";
+    grid-gap: rem(20px);
+    padding-bottom: 5rem;
+    @include m(title) {
+      grid-area: title;
+    }
+    @include m(brick1) {
+      grid-area: brick1;
+    }
+    @include m(brick2) {
+      grid-area: brick2;
+    }
+    @include m(brick3) {
+      grid-area: brick3;
+    }
+  }
+  @include m(blog) {
+    display: grid;
+    grid-template-areas: "title  brick1"
+                         "brick2 brick3";
+    grid-gap: rem(20px);
+    padding-bottom: 5rem;
+    @include m(title) {
+      grid-area: title;
+    }
+    @include m(brick1) {
+      grid-area: brick1;
+    }
+    @include m(brick2) {
+      grid-area: brick2;
+    }
+    @include m(brick3) {
+      grid-area: brick3;
+    }
+  }
+  @include m(other) {
+    display: grid;
+    grid-template-areas: "about  settings"
+                         "bloody pics";
+    grid-row-gap: rem(20px);
+    @include m(about) {
+      grid-area: about;
+    }
+    @include m(settings) {
+      grid-area: settings
+    }
+    @include m(bloody) {
+      grid-area: bloody;
+    }
+    @include m(pics) {
+      grid-area: pics;
+    }
+  }
+}
+
+.footer {
+  padding-top: 5rem;
+}

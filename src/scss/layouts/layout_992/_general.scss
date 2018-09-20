@@ -1,0 +1,176 @@
+$headerHeight: rem(80px);
+$headerNavHeight: rem(60px);
+
+.header {
+  grid-template-areas: "header_logo header_slogan header_slogan" "header_nav_top header_nav_bottom header_search";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: $headerHeight $headerNavHeight;
+}
+
+.header {
+  background-color: $navLight;
+  @include e(logo) {
+    height: 100%;
+  }
+  @include e(slogan) {
+    height: 100%;
+    line-height: rem(60px);
+    padding-right: 20%;
+    text-align: right;
+  }
+  @include e(nav) {
+    @include m(list) {
+      height: 100%;
+    }
+    @include m(bottom) {
+      padding-right: 0;
+    }
+  }
+  @include e(search) {
+    padding-right: 35%;
+    @include m(input) {
+      height: 100%;
+    }
+    @include m(icon) {
+      height: 100%;
+    }
+  }
+}
+
+.artwork {
+    $arrowHeight: rem(26px);
+    $arrowWidth: rem(42px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    @include e(picture) {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      background-color: $white;
+      height: rem(430px);
+      width: rem(815px);
+      flex: none;
+      border: 10px solid white;
+      @include m(text) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: $white;
+        border-radius: 50%;
+        width: rem(375px);
+        height: rem(375px);
+        transform: translate(-50%, -50%);
+        border: 20px solid $creme;
+        @include m(header) {
+          width: rem(300px);
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          color: $brown;
+          font-size: 2rem;
+        }
+        @include m(description) {
+          color: $gray;
+          font-size: rem(10px);
+          width: 100%;
+        }
+      }
+      @include m(img) {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        grid-gap: 7px;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        opacity: 0.3;
+        @include m(1) {
+          grid-area: 1 / 1 / 3 / 3;
+          transform: scale(1.25) translate(rem(29px),rem(32px));
+        }
+        @include m(2) {
+          grid-area: 1 / 3 / 2 / 4;
+          transform: scale(1.25) translate(rem(22px),rem(16px));
+        }
+        @include m(3) {
+          grid-area: 2 / 3 / 3 / 5;
+          transform: scale(1.3) translate(rem(74px), rem(-4px));
+        }
+        @include m(4) {
+          grid-area: 1 / 4 / 2 / 5;
+          transform: scale(1.1) translate(rem(29px), rem(-2px));
+        }
+      }
+    }
+    // @include e(left) {
+    //   display: block;
+    //   height: $arrowHeight;
+    //   width: $arrowWidth;
+    //   margin: 1rem;
+    //   @include m(svg) {
+    //     width: 100%;
+    //     height: 100%;
+    //     fill: $gray;
+    //   }
+    // }
+    // @include e(right) {
+    //   display: block;
+    //   height: $arrowHeight;
+    //   width: $arrowWidth;
+    //   margin: 1rem;
+    //   @include m(svg) {
+    //     width: 100%;
+    //     height: 100%;
+    //     fill: $gray;
+    //   }
+    // }
+}
+
+.content {
+  width: 80%;
+  min-width: rem(980px);
+  margin: 0 auto;
+  @include e(main-header) {
+    text-align: center;
+    color: $contentHeader;
+    font-size: rem(22px);
+    line-height: rem(35px);
+    font-weight: 600;
+  }
+  @include e(secondary-header) {
+    width: 70%;
+    text-align: center;
+    color: $contentSecondaryHeader;
+    font-size: rem(12px);
+    line-height: rem(20px);
+    margin: 0 auto;
+    padding-bottom: 1rem;
+  }
+}
+
+.content__bricks {
+  @include m(recent-works) {
+    display: grid;
+    grid-template-areas: "title  brick1 brick2 brick3";
+    grid-gap: rem(10px);
+  }
+  @include m(blog) {
+    display: grid;
+    grid-template-areas: "title  brick1 brick2 brick3";
+    grid-gap: rem(10px);
+  }
+  @include m(other) {
+    display: grid;
+    grid-template-areas: "about settings bloody pics";
+    @include m(bloody) {
+      margin-left: rem(10px);
+    }
+  }
+}

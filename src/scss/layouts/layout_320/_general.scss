@@ -1,0 +1,333 @@
+body {
+  font-family: $fontFamily;
+}
+
+.header {
+  @include e(logo) {
+    display: flex;
+    align-items: center;
+    background-color: $navDark;
+    @include m(icon) {
+      height: rem(43px);
+      width: rem(43px);
+      background-color: $iconRed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: inset 0 -3px 0 #d04e33;
+      @include m(svg) {
+        height: rem(25px);
+        width: rem(25px);
+        fill: $white;
+      }
+    }
+    @include m(text) {
+      color: $white;
+      text-transform: uppercase;
+      font-size: 1rem;
+      margin-left: rem(10px);
+    }
+  }
+  @include m(menu-icon) {
+    height: $headerHeight;
+    width: rem(45px);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    @include m(svg) {
+      display: block;
+      fill: $white;
+    }
+  }
+  @include e(slogan) {
+    background-color: $navDark;
+    font-size: rem(13px);
+    color: $navSlogan;
+    padding: 0.5rem 0;
+    text-align: center;
+  }
+  @include e(nav) {
+    @include m(list) {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: $headerNavHeight;
+      background-color: $navLight;
+      @include m(item) {
+        @include m(link) {
+          color: $navItem;
+          text-decoration: none;
+          text-transform: uppercase;
+
+          &:hover {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+  @include e(search) {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    @include m(input) {
+      display: inline-block;
+      position: relative;
+      flex: 4;
+      height: $headerHeight;
+      width: 100%;
+      padding: 1rem;
+      color: $white;
+      background-color: $navInput;
+
+      &:focus {
+        outline-width: 0;
+        background-color: $navDark;
+      }
+    }
+    @include m(icon) {
+      flex: 1;
+      height: $headerHeight;
+      background-color: $navInput;
+      padding: 0.3rem;
+      @include m(svg) {
+        width: 100%;
+        height: 100%;
+        fill: $navItem;
+      }
+
+      &:hover {
+        background-color: $navDark;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.artwork {
+  $arrowHeight: rem(26px);
+  $arrowWidth: rem(42px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  @include e(picture) {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-color: $creme;
+    height: rem(340px);
+    width: rem(607px);
+    flex: none;
+    @include m(text) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: $white;
+      border-radius: 50%;
+      width: rem(335px);
+      height: rem(335px);
+      transform: translate(-50%, -50%);
+      border: 20px solid $gray;
+      @include m(header) {
+        width: rem(300px);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: $brown;
+        padding-top: 1.5rem;
+      }
+      @include m(description) {
+        color: $gray;
+        font-size: rem(10px);
+      }
+    }
+    @include m(img) {
+      display: none;
+    }
+  }
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+  @include e(main-header) {
+    text-align: center;
+    color: $contentHeader;
+    font-size: rem(15px);
+    line-height: rem(23px);
+    font-weight: 600;
+  }
+  @include e(secondary-header) {
+    width: 80%;
+    text-align: center;
+    color: $contentSecondaryHeader;
+    font-size: rem(8px);
+    line-height: rem(13px);
+    margin: 0 auto;
+    padding-bottom: 3rem;
+  }
+  @include e(bricks) {
+    @include m(recent-works) {
+      padding-bottom: 3rem;
+      @include m(title) {
+        border-top: 1px solid $gray;
+        border-bottom: 1px solid $gray;
+        margin: 0 auto;
+        @include m(header) {
+          color: $fontDark;
+          font-size: rem(16px);
+          line-height: rem(25px);
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+        @include m(text) {
+          color: $fontLight;
+          font-size: rem(12px);
+          line-height: rem(21px);
+        }
+      }
+      @include m(content) {
+        margin-bottom: 1rem;
+        @include m(img) {
+          margin-top: 3rem;
+          border-bottom: 3px solid $redBorder;
+          width: 100%;
+        }
+        @include m(title) {
+          padding: rem(30px) rem(40px) rem(20px);
+          background-color: $white;
+          color: $brickHeader;
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size: rem(16px);
+        }
+        @include m(text) {
+          padding: 0 rem(40px) rem(60px);
+          background-color: $white;
+          color: $fontLight;
+          font-size: rem(12px);
+          line-height: rem(21px);
+        }
+      }
+    }
+    @include m(blog) {
+      padding-bottom: 3rem;
+      @include m(title) {
+        border-top: 1px solid $gray;
+        border-bottom: 1px solid $gray;
+        margin: 0 auto;
+        @include m(header) {
+          color: $fontDark;
+          font-size: rem(16px);
+          line-height: rem(25px);
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+        @include m(text) {
+          color: $fontLight;
+          font-size: rem(12px);
+          line-height: rem(21px);
+        }
+      }
+      @include m(content) {
+        margin-bottom: 1rem;
+        @include m(img) {
+          margin-top: 3rem;
+          border-bottom: 3px solid $redBorder;
+          width: 100%;
+        }
+        @include m(title) {
+          padding: rem(30px) rem(40px) rem(20px) rem(40px);
+          background-color: $white;
+          color: $brickHeader;
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size: rem(16px);
+        }
+        @include m(subtitle) {
+          padding: 0 rem(40px) rem(20px);
+          background-color: $white;
+          font-weight: 700;
+          line-height: rem(21px);
+          font-size: rem(13px);
+          text-transform: uppercase;
+        }
+        @include m(text) {
+          padding: 0 rem(40px) rem(60px);
+          background-color: $white;
+          color: $fontLight;
+          font-size: rem(12px);
+          line-height: rem(21px);
+        }
+      }
+    }
+    @include m(other) {
+      @include m(primary) {
+        position: relative;
+        padding-top: 100%;
+        background-color: $white;
+        @include m(title) {
+          position: absolute;
+          top: 20%;
+          left: rem(40px);
+          right: rem(40px);
+          color: $brickHeader;
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size: rem(16px);
+        }
+        @include m(text) {
+          position: absolute;
+          top: 40%;
+          left: rem(40px);
+          right: rem(40px);
+          font-size: rem(12px);
+          line-height: rem(21px);
+          color: $fontLight;
+        }
+      }
+      @include m(pic) {
+        position: relative;
+        padding-top: 100%;
+        margin-bottom: 3rem;
+        background-color: $red;
+        @include m(link) {
+          position: absolute;
+          top: 50%;
+          right: 50%;
+          transform: translate(24px, -24px);
+          @include m(svg) {
+            fill: $white;
+            width: 48px;
+            height: 48px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  margin-bottom: 10rem;
+  @include e(header) {
+    color: $footerTitle;
+    text-align: right;
+    font-size: rem(12px);
+    line-height: rem(45px);
+  }
+  @include e(article) {
+    margin-left: auto;
+    width: 90%;
+    color: $footerText;
+    font-size: rem(12px);
+    line-height: rem(20px);
+    text-align: right;
+  }
+}

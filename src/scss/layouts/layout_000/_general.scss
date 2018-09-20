@@ -1,0 +1,33 @@
+.header {
+  display: grid;
+  grid-template-areas: "header_logo"
+                       "header_slogan"
+                       "header_nav_top"
+                       "header_nav_bottom"
+                       "header_search";
+  @include e(logo) {
+    grid-area: header_logo;
+  }
+  @include e(slogan) {
+    grid-area: header_slogan;
+  }
+  @include e(nav) {
+    @include m(top) {
+      grid-area: header_nav_top;
+    }
+    @include m(bottom) {
+      grid-area: header_nav_bottom;
+    }
+  }
+  @include e(search) {
+    grid-area: header_search;
+  }
+}
+
+body {
+  background-color: $creme;
+}
+
+.red {
+  color: $red;
+}
